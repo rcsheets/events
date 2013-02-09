@@ -34,4 +34,7 @@ Events::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Needed for password reset emails, among probably other things
+  config.action_mailer.default_url_options = {:host => 'events.picosecond.org'}
 end
