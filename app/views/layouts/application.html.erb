@@ -16,7 +16,7 @@
         <ul class='nav pull-right'>
           <li>
             <% if user_signed_in? %>
-            <%= current_user %>
+            <%= current_user.email %>
             <% else %>
             <a href="/users/sign_in">Log in</a>
             <% end %>
