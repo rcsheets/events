@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212103119) do
+ActiveRecord::Schema.define(:version => 20130212134004) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -58,8 +58,12 @@ ActiveRecord::Schema.define(:version => 20130212103119) do
 
   create_table "web_requests", :force => true do |t|
     t.string   "guid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "remote_address"
+    t.string   "request_method"
+    t.string   "request_path"
+    t.string   "user_agent"
   end
 
   create_table "web_sessions", :force => true do |t|
