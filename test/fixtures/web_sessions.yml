@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  session_id: MyString
+  data: MyText
+  deleted_at: 2013-02-12 02:09:43
+
+two:
+  session_id: MyString
+  data: MyText
+  deleted_at: 2013-02-12 02:09:43
