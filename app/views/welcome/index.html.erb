@@ -1,3 +1,12 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
 <p>Your session ID is <%= request.session_options[:id] %></p>
+<h2>Request ID</h2>
+<p>Your request ID is <%= request.uuid %></p>
+<h2>Headers</h2>
+<dl>
+  <% request.headers.keys.sort.each do |header| %>
+  <dt><%= header %></dt>
+  <dd style="font-family: monospace"><%= request.headers[header] %></dd>
+  <% end %>
+</dl>
