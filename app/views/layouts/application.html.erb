@@ -7,6 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class='container'>
+    <div class='navbar navbar-inverse' id='navbar-top'>
+      <div class='navbar-inner'>
+        <a class='brand'>Events</a>
+        <ul class='nav'>
+        </ul>
+        <ul class='nav pull-right'>
+          <li>
+            <% if user_signed_in? %>
+            <%= current_user %>
+            <% else %>
+            <a href="/users/sign_in">Log in</a>
+            <% end %>
+          </li>
+        </ul>
+      </div> <!-- .navbar-inner -->
+    </div> <!-- #navbar-top -->
+  </div> <!-- .container -->
 
 <%= yield %>
 
