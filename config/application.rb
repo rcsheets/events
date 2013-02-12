@@ -9,6 +9,22 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+# ActionDispatch doesn't accept the '@' character used by apache's
+# mod_unique_id. We need to fix that here until it can be fixed upstream.
+# I suspect this may not be the correct place to put this, but oh well.
+module ActionDispatch
+  class RequestId
+    alias_method :external_request_id_original, :external_request_id
+
+    private
+      def external_request_id(env)
+        if request_id = env["HTTP_X_REQUEST_ID"].presence
+          request_id.gsub(/[^\w@\-]/, "").first(255)
+        end
+      end
+  end
+end
+
 module Events
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
